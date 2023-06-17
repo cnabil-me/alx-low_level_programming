@@ -13,5 +13,7 @@
                 putchar(n);
                 n++;
         }
+	putchar(65);
+
 	return (0);	
  }
