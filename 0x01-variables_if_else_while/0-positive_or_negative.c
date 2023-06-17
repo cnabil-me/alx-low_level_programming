@@ -27,8 +27,6 @@ int main(void)
 	{
 		printf("is negative");
 	}
-
-	printf("/n");
 	return (0);
 
 }
