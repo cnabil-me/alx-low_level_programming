@@ -3,7 +3,6 @@
 #include <stdio.h>
 /**
  * main - check the last digit of a random number
- * 
  * Description : check the last random number
  * Return: always work
  */
