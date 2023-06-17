@@ -2,8 +2,9 @@
 #include <time.h>
 #include <stdio.h>
 /**
- * check the last digit of a random number
- *
+ * main - check the last digit of a random number
+ * 
+ * Description : check the last random number
  * Return: always work
  */
 int main(void)
