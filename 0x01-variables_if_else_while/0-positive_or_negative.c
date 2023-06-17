@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include <time.h>
 /**
- * main : entry point
+ * main - main entry point
  *
  * Description : check the number is positif , negatif , or zero
- * Return : is positive | is zero | is negative
+ * Return: is positive is zero is negative
  */
 int main(void)
 {
@@ -16,11 +16,11 @@ int main(void)
 
 	printf("%d ", n);
 
-	if(n > 0)
+	if (n > 0)
 	{
 		printf("is positive");
 	}
-	else if(n == 0)
+	else if (n == 0)
 	{
 		printf("is zero");
 	}
