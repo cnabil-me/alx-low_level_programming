@@ -1,19 +1,22 @@
 #include "main.h"
 /**
-*_islower - Determines if character is lowercase
+*_abs - gives absolute value of an integer
 *
-*@c: is parameter for a character
+*@num: integer
 *
-*Return: 1 (Success), 0 (Fail)
+*Return: The absolute value of num
 */
-int _islower(int c)
+int _abs(int num)
 {
-	if (c > 96 && c < 123)
+	int absNum;
+
+	if (num < 0)
 	{
-		return (1);
+		absNum = num * -1;
 	}
 	else
 	{
-		return (0);
+		absNum = num;
 	}
+return (absNum);
 }
