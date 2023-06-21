@@ -8,15 +8,6 @@
 */
 int _abs(int num)
 {
-	int absNum;
 
-	if (num < 0)
-	{
-		absNum = num * -1;
-	}
-	else
-	{
-		absNum = num;
-	}
-return (absNum);
+return (+num);
 }
