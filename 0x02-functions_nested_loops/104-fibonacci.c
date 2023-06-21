@@ -19,7 +19,7 @@ int main(void)
 	for (counter = 2; counter < 98; counter++)
 	{
 		if (next > 7540113804746346429)
-		{		
+		{
 			next = prev + curr;
 			printf(", %ld", next);
 			prev = curr;
