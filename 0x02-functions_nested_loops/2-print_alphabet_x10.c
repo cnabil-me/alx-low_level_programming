@@ -1,12 +1,18 @@
 #include "main.h"
-
 /**
- * main - check the code.
- *
- * Return: Always 0.
- */
-int main(void)
+*print_alphabet_x10 - outputs alphabets x10
+*/
+void print_alphabet_x10(void)
 {
-	print_alphabet_x10();
-	return (0);
+	int count;
+	char lower;
+
+	for (count = 1; count <= 10; count++)
+	{
+		for (lower = 'a'; lower <= 'z'; lower++)
+		{
+			_putchar(lower);
+		}
+		_putchar('\n');
+	}
 }
