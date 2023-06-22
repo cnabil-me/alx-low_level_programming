@@ -1,20 +1,23 @@
 #include "main.h"
+
 /**
- * more_numbers - print the numbers 0 to 9
+ * more_numbers - function to print numbers
+ *
+ * Return: Always 0.
  */
 void more_numbers(void)
 {
-	int i;
-	int j;
+	int a, b;
 
-	for (j = 0; j <= 10; j++)
+	for (a = 0; a < 10; a++)
 	{
-		for (i = 0; i <= 14; i++)
+		for (b = 0; b < 15; b++)
 		{
-			_putchar((char)i);
+			if (b > 9)
+				_putchar(b / 10 + '0');
+			_putchar(b % 10 + '0');
 		}
 		_putchar('\n');
 	}
-	_putchar('\n');
 }
 
