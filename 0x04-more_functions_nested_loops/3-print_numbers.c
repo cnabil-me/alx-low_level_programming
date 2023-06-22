@@ -1,16 +1,13 @@
 #include "main.h"
 /**
- * mul - multip twoo integers
- *
- * Return: 0 always
+ * print_numbers - print numbers from 0 to 9
  */
-int print_numbers(void)
+void print_numbers(void)
 {
-	for (int i = 0; i <= 9; i++)
+	for (int i = 0; i < 10; ++i)
 	{
 		_putchar(i);
 	}
 	_putchar('\n');
-	return (0);
 }
 
