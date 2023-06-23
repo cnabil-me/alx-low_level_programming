@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "main.h"
 
 /**
  * print_triangle - entry point
@@ -32,3 +32,4 @@ void print_triangle(int size)
 		}
 	}
 }
+
