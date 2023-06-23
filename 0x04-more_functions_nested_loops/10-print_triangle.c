@@ -1,32 +1,34 @@
-#include "main.h"
+#include "holberton.h"
+
 /**
- * print_triangle - prints a triangle, followed by a new line
- * @size: size of triangle
- * Description: prints a triangle, followed by a new line
- * Return: always 0
+ * print_triangle - entry point
+ *
+ * Description: Prints diagonals
+ *@size: size of the triangle
+ * Return: void
  */
 
 void print_triangle(int size)
 {
+	int row, hashes, spaces;
 
-	int i, j, k;
-
-	if (size > 0)
+	if (size <= 0)
 	{
-		for (i = size; i > 0; i--)
+		_putchar('\n');
+	}
+	else
+	{
+		for (row = 1; row <= size; row++)
 		{
-			for (k = i; k > 1; k--)
+			for (spaces = size - row; spaces >= 1; spaces--)
 			{
 				_putchar(' ');
 			}
-			for (j = 0; j <= size - i; j++)
+			for (hashes = 1; hashes <= row; hashes++)
 			{
 				_putchar('#');
 			}
 			_putchar('\n');
 		}
 	}
-
-	_putchar('\n');
 }
-
