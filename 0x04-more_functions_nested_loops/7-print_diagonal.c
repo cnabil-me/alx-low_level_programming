@@ -1,34 +1,35 @@
 #include "main.h"
 
 /**
- * print_diagonal - draw a diagonal line
- * @n: number of times the '\' char is printed
- * Description: Can only use _putchar to print
+ * print_diagonal - entry point
+ *
+ * Description: Prints diagonals
+ *@n: number of spaces
+ * Return: void
  */
+
 void print_diagonal(int n)
 {
+	int row, num_lines;
+
 	if (n <= 0)
 	{
 		_putchar('\n');
-		return;
 	}
-
-	int c, i;
-
-	c = 0;
-
-	while (n > 0)
+	else
 	{
-		i = c;
-		while (i > 0)
+		for (row = 1; row <= n; row++)
 		{
-			_putchar(' ');
-			i--;
+			if (row > 1)
+			{
+				for (num_lines = 1; num_lines <= row - 1; num_lines++)
+				{
+					_putchar(' ');
+				}
+			}
+			_putchar('\\');
+			_putchar('\n');
 		}
-		_putchar('\\');
-		_putchar('\n');
-		c++;
-		n--;
 	}
 }
 
