@@ -1,34 +1,37 @@
 #include <stdio.h>
-
 /**
  * main - FizzBuzz
- *
- * A*
- * program that prints the numbers from 1 to 100.
- *
+ * Description: FizzBuzz game.
  * Return: always 0
  */
+
 int main(void)
 {
-	for (unsigned int i = 1; i <= 100; i++)
+	int n = 1;
+
+	while (n <= 100)
 	{
-		if (i % 15 == 0)
+		if (n % 3 == 0 && n % 5 == 0)
 		{
-			printf("FizzBuzz\n");
+			printf("FizzBuzz");
 		}
-		else if (i % 3 == 0)
+		else if (n % 5 == 0)
 		{
-			printf("Fizz\n");
+			printf("Buzz");
 		}
-		else if (i % 5 == 0)
+		else if (n % 3 == 0)
 		{
-			printf("Buzz\n");
+			printf("Fizz");
 		}
 		else
 		{
-			printf("%u\n", i);
+			printf("%d", n);
 		}
+		if (n < 100)
+			printf(" ");
+		n++;
 	}
+	printf("\n");
 	return (0);
 }
 
