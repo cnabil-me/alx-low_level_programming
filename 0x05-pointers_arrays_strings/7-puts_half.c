@@ -2,18 +2,17 @@
 #include <string.h>
 /**
  * puts_half - prints every other character of a string
- * @s: the string to print
+ * @str: the string to print
  * Return: Void
  */
-void puts_half(char *s)
+void puts_half(char *str)
 {
 	int i;
-	int len = strlen(s);
+	int len = strlen(str);
 
-	for (i = (len - 1) / 2; i <= len; i++)
+	for (i = (len) / 2; i <= len; i++)
 	{
-		putchar(s[i]);
+		putchar(str[i]);
 	}
 	putchar('\n');
 }
-
