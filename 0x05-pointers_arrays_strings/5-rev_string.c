@@ -16,7 +16,7 @@ void rev_string(char *s)
 	{
 		swap_char(&s[i], &s[len - i - 1]);
 	}
-	printf("%s\n", s);
+	printf("%s", s);
 }
 
 /**
