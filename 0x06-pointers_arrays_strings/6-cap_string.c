@@ -2,6 +2,8 @@
 #include <string.h>
 char *cap_string(char *str);
 char upper_char(char c);
+
+
 /**
  * cap_string - capitalized string
  * @str: string to be capitalized
@@ -10,22 +12,26 @@ char upper_char(char c);
  */
 char *cap_string(char *str)
 {
-
-	int i = 0;
+	int i, j;
+	int asciiCode;
 	char separators[] = {' ', '\t', '\n', ',',
-		';', '.', '!', '?', '"', '(', ')', '{', '}'};
+			     ';', '.', '!', '?', '"', '(', ')', '{', '}'};
 
 	while (str[i] != '\0')
 	{
-		int j;
 
 		if (i == 0)
 		{
 			str[0] = upper_char(str[0]);
+			// continue;
 		}
 
 		for (j = 0; j < 13; j++)
 		{
+			if (str[i] == '\t')
+			{
+				str[i] = ' ';
+			}
 			if (str[i] == separators[j])
 			{
 				if (str[i + 1] != '\0')
@@ -53,3 +59,4 @@ char upper_char(char c)
 	}
 	return (c);
 }
+
