@@ -1,27 +1,35 @@
 #include "main.h"
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-
-void print_number(int n);
-
 /**
- * print_number - prints a number
- * @n: number to process.
- *
- */
-
+*print_number - prints number
+*
+*@n: integer to be printed
+*/
 void print_number(int n)
 {
-	char str[20];
-	int i = 0;
+	unsigned int divisor, temp1, temp2;
 
-	sprintf(str, "%d", n);
-
-	while (str[i] != '\0')
+	if (n < 0)
 	{
-		_putchar(str[i]);
-		i++;
+		temp1 = -n;
+		_putchar('-');
+	}
+	else
+	{
+		temp1 = n;
+	}
+
+	divisor = 1;
+	temp2 = temp1;
+
+	while (temp2 > 9)
+	{
+		temp2 /= 10;
+		divisor *= 10;
+	}
+
+	while (divisor >= 1)
+	{
+		_putchar(((temp1 / divisor) % 10) + 48);
+		divisor /= 10;
 	}
 }
-
