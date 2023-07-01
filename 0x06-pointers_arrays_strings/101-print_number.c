@@ -6,29 +6,45 @@ void print_number(int n);
  * @n: number to process.
  *
  */
+
 void print_number(int n)
 {
-	unsigned int num;
+	long m;	  /* power of 10 */
+	int c;	  /* boolean check */
+	long num; /* convert int to long */
 
-	if (n < 10 && n >= 0)
+	num = n;
+	/* negatives */
+	if (num < 0)
 	{
-		_putchar('0' + n);
-		return;
-	}
-	if (n < 0)
-	{
-		num = -n;
+		num *= -1;
 		_putchar('-');
 	}
-	else
+
+	/* count up */
+	m = 1;
+	c = 1;
+	while (c)
 	{
-		num = n;
+		if (num / (m * 10) > 0)
+			m *= 10;
+		else
+			c = 0;
 	}
 
-	if (num >= 10)
+	/* count down */
+	while (num >= 0)
 	{
-		print_number(num / 10);
+		if (m == 1)
+		{
+			_putchar(num % 10 + '0');
+			num = -1;
+		}
+		else
+		{
+			_putchar((num / m % 10) + '0');
+			m /= 10;
+		}
 	}
-	_putchar('0' + (num % 10));
 }
 
