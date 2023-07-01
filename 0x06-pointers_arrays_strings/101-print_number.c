@@ -1,54 +1,36 @@
-// #include "main.h"
-#include <unistd.h>
-
-void print_number(int n);
-int _putchar(char c);
+#include "main.h"
 
 /**
- * print_number - prints a number
- * @n: number to process.
- *
+ * print_number - prints number.
+ * @n: input number.
+ * Return: no return.
  */
-
 void print_number(int n)
 {
-	unsigned int divisor, temp1, temp2;
+	unsigned int m, d, count;
 
 	if (n < 0)
 	{
-		temp1 = -n;
-		_putchar('-');
+		_putchar(45);
+		m = n * -1;
 	}
 	else
 	{
-		temp1 = n;
+		m = n;
 	}
 
-	divisor = 1;
-	temp2 = temp1;
+	d = m;
+	count = 1;
 
-	while (temp2 > 9)
+	while (d > 9)
 	{
-		temp2 /= 10;
-		divisor *= 10;
+		d /= 10;
+		count *= 10;
 	}
 
-	while (divisor >= 1)
+	for (; count >= 1; count /= 10)
 	{
-		_putchar(((temp1 / divisor) % 10) + 48);
-		divisor /= 10;
+		_putchar(((m / count) % 10) + 48);
 	}
-}
-
-/**
- * _putchar - writes the character c to stdout
- * @c: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
- */
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
 }
 
