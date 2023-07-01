@@ -1,10 +1,8 @@
-// #include "main.h"
+#include "main.h"
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
-
 void print_number(int n);
-int _putchar(char c);
 
 /**
  * print_number - prints a number
@@ -25,17 +23,5 @@ void print_number(int n)
 		_putchar(str[i]);
 		i++;
 	}
-}
-
-/**
- * _putchar - writes the character c to stdout
- * @c: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
- */
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
 }
 
