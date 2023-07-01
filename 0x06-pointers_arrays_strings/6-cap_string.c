@@ -13,7 +13,6 @@ char upper_char(char c);
 char *cap_string(char *str)
 {
 	int i, j;
-	int asciiCode;
 	char separators[] = {' ', '\t', '\n', ',',
 			     ';', '.', '!', '?', '"', '(', ')', '{', '}'};
 
@@ -23,7 +22,7 @@ char *cap_string(char *str)
 		if (i == 0)
 		{
 			str[0] = upper_char(str[0]);
-			// continue;
+			continue;
 		}
 
 		for (j = 0; j < 13; j++)
@@ -53,7 +52,8 @@ char upper_char(char c)
 	if (c >= 'a' && c <= 'z')
 	{
 		int asciiCode;
-		asciiCode = (int)c;
+
+		asciiCode = (int) c;
 		asciiCode = asciiCode - 32;
 		c = (char)asciiCode;
 	}
