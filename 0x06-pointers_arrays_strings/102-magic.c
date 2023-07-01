@@ -1,9 +1,5 @@
 #include <stdio.h>
 
-/**
- * main - prints number.
- * Return: always true.
- */
 int main(void)
 {
 	int n;
@@ -14,10 +10,11 @@ int main(void)
 	p = &n;
 	/*
 	 * write your line of code here...
-	 * Remember:   * - you are not allowed to use a
+	 * Remember:
+	 * - you are not allowed to use a
 	 * - you are not allowed to modify p
 	 * - only one statement
-	 * - you are not allowed to code anything else
+	 * - you are not allowed to code anything else than this line of code
 	 */
 	*(p - (&n - &a[2])) = 98;
 	/* ...so that this prints 98\n */
