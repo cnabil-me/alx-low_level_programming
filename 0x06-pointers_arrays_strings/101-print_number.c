@@ -1,4 +1,6 @@
 #include "main.h"
+void print_number(int n);
+
 /**
  * print_number - prints a number
  * @n: number to process.
