@@ -2,6 +2,7 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
+
 void print_number(int n);
 
 /**
@@ -13,10 +14,9 @@ void print_number(int n);
 void print_number(int n)
 {
 	char str[20];
+	int i = 0;
 
 	sprintf(str, "%d", n);
-
-	int i = 0;
 
 	while (str[i] != '\0')
 	{
