@@ -1,9 +1,15 @@
 #include <stdio.h>
+
+/**
+ * main - prints number.
+ * Return: always true.
+ */
 int main(void)
 {
 	int n;
 	int a[5];
 	int *p;
+
 	a[2] = 1024;
 	p = &n;
 	/*
