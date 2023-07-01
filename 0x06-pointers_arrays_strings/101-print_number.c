@@ -1,5 +1,7 @@
-#include "main.h"
+// #include "main.h"
 #include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 void print_number(int n);
 int _putchar(char c);
@@ -12,42 +14,16 @@ int _putchar(char c);
 
 void print_number(int n)
 {
-	int m;
-	int c;
-	int num;
+	char str[20];
 
-	num = n;
-	/* negatives */
-	if (num < 0)
-	{
-		num *= -1;
-		_putchar('-');
-	}
+	sprintf(str, "%d", n);
 
-	/* count up */
-	m = 1;
-	c = 1;
-	while (c)
-	{
-		if (num / (m * 10) > 0)
-			m *= 10;
-		else
-			c = 0;
-	}
+	int i = 0;
 
-	/* count down */
-	while (num >= 0)
+	while (str[i] != '\0')
 	{
-		if (m == 1)
-		{
-			_putchar(num % 10 + '0');
-			num = -1;
-		}
-		else
-		{
-			_putchar((num / m % 10) + '0');
-			m /= 10;
-		}
+		_putchar(str[i]);
+		i++;
 	}
 }
 
