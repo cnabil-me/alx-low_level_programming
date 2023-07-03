@@ -1,3 +1,4 @@
+#include "main.h"
 #include <stdio.h>
 /**
  * _strchr - find first occurrence of c
