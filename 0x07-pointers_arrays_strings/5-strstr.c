@@ -1,5 +1,5 @@
-#include "main.h"
 #include <stdio.h>
+#include <string.h>
 /**
  * _strstr - locate the first occurrence of a substring within another string
  * @haystack: pointer to the string to be searched
@@ -11,6 +11,11 @@ char *_strstr(char *haystack, char *needle)
 	unsigned int i, j;
 	char *ptr = NULL;
 	int first_found = 0;
+
+	if ((int)*(needle) == 0)
+	{
+		return (haystack);
+	}
 
 	for (i = 0; *(haystack + i) != '\0'; i++)
 	{
