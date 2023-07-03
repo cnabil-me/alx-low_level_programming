@@ -1,5 +1,5 @@
 #include "main.h"
-include < stdio.h >
+#include <stdio.h>
 /**
  * print_diagsums - print the diagsums of a matrix
  * @a: array
