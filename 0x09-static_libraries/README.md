@@ -1,1 +1,1 @@
-Just a static libreary 
+Just a simple readme file
