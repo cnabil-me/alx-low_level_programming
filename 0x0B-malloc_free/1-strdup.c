@@ -32,7 +32,7 @@ char *_strdup(char *str)
 
 		int i;
 		int strlen = _strlen_recursion(str);
-		char *new_str = malloc(sizeof(char));
+		char *new_str = malloc(sizeof(char)+1);
 
 		if (new_str == NULL)
 		{
