@@ -11,35 +11,34 @@
  */
 char *str_concat(char *s1, char *s2)
 {
-	unsigned int i, j, k, s1_count, s2_count;
+	char *new_string;
+	unsigned int i, j, k, limit;
 
-	if (s1 == NULL && s2 == NULL)
-	{
-		return (NULL);
-	}
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
 
 	for (i = 0; s1[i] != '\0'; i++)
 		;
+
 	for (j = 0; s2[j] != '\0'; j++)
 		;
-	char *new_string = malloc(sizeof(char) * (i + (j - 1)));
 
-	s1_count = 0;
+	new_string = malloc(sizeof(char) * (i + j + 1));
 
-	while (s1_count < i)
+	if (new_string == NULL)
 	{
-		new_string[s1_count] = s1[s1_count];
-		s1_count++;
+		free(new_string);
+		return (NULL);
 	}
 
-	s2_count = i;
-	k = 0;
-	while (k <= j)
-	{
-		new_string[s2_count] = s2[k];
-		s2_count++;
-		k++;
-	}
-	new_string[i + j] = '\0';
+	for (k = 0; k < i; k++)
+		new_string[k] = s1[k];
+
+	limit = j;
+	for (j = 0; j <= limit; k++, j++)
+		new_string[k] = s2[j];
+
 	return (new_string);
 }
