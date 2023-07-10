@@ -10,33 +10,27 @@
  */
 char *argstostr(int ac, char **av)
 {
-	char *export;
+	char *aout;
 	int c, i, j, ia;
 
 	if (ac == 0)
-	{
 		return (NULL);
-	}
 
 	for (c = i = 0; i < ac; i++)
 	{
 		if (av[i] == NULL)
-		{
 			return (NULL);
-		}
 
 		for (j = 0; av[i][j] != '\0'; j++)
-		{
 			c++;
-		}
 		c++;
 	}
 
-	export = malloc((c + 1) * sizeof(char));
+	aout = malloc((c + 1) * sizeof(char));
 
-	if (export == NULL)
+	if (aout == NULL)
 	{
-		free(export);
+		free(aout);
 		return (NULL);
 	}
 
@@ -44,18 +38,16 @@ char *argstostr(int ac, char **av)
 	{
 		if (av[i][j] == '\0')
 		{
-			export[ia] = '\n';
+			aout[ia] = '\n';
 			i++;
 			ia++;
 			j = 0;
 		}
 		if (ia < c - 1)
-		{
-			export[ia] = av[i][j];
-		}
+			aout[ia] = av[i][j];
 	}
-	export[ia] = '\0';
+	aout[ia] = '\0';
 
-	return (export);
+	return (aout);
 }
 
