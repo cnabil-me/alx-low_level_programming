@@ -25,7 +25,12 @@ char *_strdup(char *str)
 	int strlen = _strlen_recursion(str);
 	char *new_str = malloc(sizeof(char));
 
-	if (new_str == NULL || str == NULL)
+	if (str == NULL)
+	{
+		return (NULL);
+	}
+
+	if (new_str == NULL)
 	{
 		return (NULL);
 	}
