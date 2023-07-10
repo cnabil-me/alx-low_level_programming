@@ -21,25 +21,30 @@ int _strlen_recursion(char *s)
  */
 char *_strdup(char *str)
 {
-	int i;
-	int strlen = _strlen_recursion(str);
-	char *new_str = malloc(sizeof(char));
 
 	if (str == NULL)
 	{
+
 		return (NULL);
 	}
-
-	if (new_str == NULL)
+	else
 	{
-		return (NULL);
-	}
-	for (i = 0; i <= strlen; i++)
-	{
-		new_str[i] = str[i];
-	}
 
-	return (new_str);
-	free(new_str);
-	new_str = NULL;
+		int i;
+		int strlen = _strlen_recursion(str);
+		char *new_str = malloc(sizeof(char));
+
+		if (new_str == NULL)
+		{
+			return (NULL);
+		}
+		for (i = 0; i <= strlen; i++)
+		{
+			new_str[i] = str[i];
+		}
+
+		return (new_str);
+		free(new_str);
+		new_str = NULL;
+	}
 }
