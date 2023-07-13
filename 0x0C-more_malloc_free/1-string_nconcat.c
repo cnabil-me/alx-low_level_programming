@@ -3,57 +3,47 @@
 #include <stdlib.h>
 
 /**
- * _strlen_recursion -  calculate the lenghts of string using recursion
- * @s: string input
- * Return: int the lenght
- */
-int _strlen_recursion(char *s)
-{
-	if (*s == '\0')
-		return (0);
-	else
-		return (1 + _strlen_recursion(s + 1));
-}
-
-/**
  * string_nconcat - concat twoo strings
  * @s1: string 01
  * @s2: string 02
  * @n: length string 02
  * Return: Pointer to the new string.
  */
+
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int size_of_s1 = _strlen_recursion(s1);
-	unsigned int size_of_s2 = _strlen_recursion(s2);
-	unsigned int i, j;
-	unsigned int last = 0;
-	void *p;
+	char *sout;
+	unsigned int len_s1, ls2, len_sout, i;
 
-	p = malloc(sizeof(char) * (size_of_s1 + size_of_s2 + 1));
+	if (s1 == NULL)
+		s1 = "";
 
-	if (p == 0)
-	{
+	if (s2 == NULL)
+		s2 = "";
+
+	for (len_s1 = 0; s1[len_s1] != '\0'; len_s1++)
+		;
+
+	for (ls2 = 0; s2[ls2] != '\0'; ls2++)
+		;
+
+	if (n > ls2)
+		n = ls2;
+
+	len_sout = len_s1 + n;
+
+	sout = malloc(len_sout + 1);
+
+	if (sout == NULL)
 		return (NULL);
-	}
 
-	for (i = 0; i < size_of_s1; i++)
-	{
-		*(char *)(p + i) = *(char *)(s1 + i);
-		last++;
-	}
-	if (n < size_of_s2)
-	{
-		size_of_s2 = n;
-	}
+	for (i = 0; i < len_sout; i++)
+		if (i < len_s1)
+			sout[i] = s1[i];
+		else
+			sout[i] = s2[i - len_s1];
 
-	for (j = 0; j < size_of_s2; j++)
-	{
-		*(char *)(p + size_of_s1 + j) = *(char *)(s2 + j);
-		last++;
-	}
+	sout[i] = '\0';
 
-	*(char *)(p + last + 1) = '\0';
-
-	return (p);
+	return (sout);
 }
