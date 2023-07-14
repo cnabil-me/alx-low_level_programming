@@ -4,12 +4,12 @@
 #include <ctype.h>
 
 /**
- * is_zero - check if any number is 0
+ * _is_zero - determines if any number is zero
  * @argv: argument vector.
  *
- * Return: Void.
+ * Return: no return.
  */
-void is_zero(char *argv[])
+void _is_zero(char *argv[])
 {
 	int i, isn1 = 1, isn2 = 1;
 
@@ -35,13 +35,13 @@ void is_zero(char *argv[])
 }
 
 /**
- * init_array - set array memery to 0
+ * _initialize_array - set memery to zero in a new array
  * @ar: char array.
- * @lar: length of array.
+ * @lar: length of the char array.
  *
- * Return: pointer of array.
+ * Return: pointer of a char array.
  */
-char *init_array(char *ar, int lar)
+char *_initialize_array(char *ar, int lar)
 {
 	int i = 0;
 
@@ -52,7 +52,7 @@ char *init_array(char *ar, int lar)
 }
 
 /**
- * _checknum - check length of the number
+ * _checknum - determines length of the number
  * and checks if number is in base 10.
  * @argv: arguments vector.
  * @n: row of the array.
@@ -89,10 +89,10 @@ int main(int argc, char *argv[])
 	if (argc != 3)
 		printf("Error\n"), exit(98);
 	ln1 = _checknum(argv, 1), ln2 = _checknum(argv, 2);
-	is_zero(argv), lnout = ln1 + ln2, nout = malloc(lnout + 1);
+	_is_zero(argv), lnout = ln1 + ln2, nout = malloc(lnout + 1);
 	if (nout == NULL)
 		printf("Error\n"), exit(98);
-	nout = init_array(nout, lnout);
+	nout = _initialize_array(nout, lnout);
 	k = lnout - 1, i = ln1 - 1, j = ln2 - 1, ca = addl = 0;
 	for (; k >= 0; k--, i--)
 	{
@@ -112,7 +112,7 @@ int main(int argc, char *argv[])
 			if (nout[0] != '0')
 				break;
 			lnout--;
-			free(nout), nout = malloc(lnout + 1), nout = init_array(nout, lnout);
+			free(nout), nout = malloc(lnout + 1), nout = _initialize_array(nout, lnout);
 			k = lnout - 1, i = ln1 - 1, j = ln2 - 1, ca = addl = 0;
 		}
 		if (j >= 0)
@@ -124,4 +124,3 @@ int main(int argc, char *argv[])
 	printf("%s\n", nout);
 	return (0);
 }
-
