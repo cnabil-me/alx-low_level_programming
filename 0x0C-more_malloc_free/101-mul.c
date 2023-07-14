@@ -4,23 +4,23 @@
 #include <stdlib.h>
 
 /**
- * _isdigit - checks if character is digit
- * @c: the character to check
+ * is_number - checks if character is a number
+ * @c: the character to be checked
  *
- * Return: 1 if digit, 0 otherwise
+ * Return: 1 or 0 if not a number
  */
-int _isdigit(int c)
+int is_number(int c)
 {
 	return (c >= '0' && c <= '9');
 }
 
 /**
- * _strlen - returns the length of a string
- * @s: the string whose length to check
+ * str_len - returns the length of a given string
+ * @s: the string to check
  *
- * Return: integer length of string
+ * Return: int length of string
  */
-int _strlen(char *s)
+int str_len(char *s)
 {
 	int i = 0;
 
@@ -30,19 +30,19 @@ int _strlen(char *s)
 }
 
 /**
- * big_multiply - multiply two big number strings
- * @s1: the first big number string
- * @s2: the second big number string
+ * the_big_multiply - multiply two big number strings
+ * @s1: the first big number
+ * @s2: the second big number
  *
- * Return: the product big number string
+ * Return: the product big number
  */
-char *big_multiply(char *s1, char *s2)
+char *the_big_multiply(char *s1, char *s2)
 {
 	char *r;
 	int l1, l2, a, b, c, x;
 
-	l1 = _strlen(s1);
-	l2 = _strlen(s2);
+	l1 = str_len(s1);
+	l2 = str_len(s2);
 	r = malloc(a = x = l1 + l2);
 	if (!r)
 		printf("Error\n"), exit(98);
@@ -51,7 +51,7 @@ char *big_multiply(char *s1, char *s2)
 
 	for (l1--; l1 >= 0; l1--)
 	{
-		if (!_isdigit(s1[l1]))
+		if (!is_number(s1[l1]))
 		{
 			free(r);
 			printf("Error\n"), exit(98);
@@ -59,9 +59,9 @@ char *big_multiply(char *s1, char *s2)
 		a = s1[l1] - '0';
 		c = 0;
 
-		for (l2 = _strlen(s2) - 1; l2 >= 0; l2--)
+		for (l2 = str_len(s2) - 1; l2 >= 0; l2--)
 		{
-			if (!_isdigit(s2[l2]))
+			if (!is_number(s2[l2]))
 			{
 				free(r);
 				printf("Error\n"), exit(98);
@@ -80,11 +80,11 @@ char *big_multiply(char *s1, char *s2)
 }
 
 /**
- * main - multiply two big number strings
+ * main - multiply two big number
  * @argc: the number of arguments
  * @argv: the argument vector
  *
- * Return: Always 0 on success.
+ * Return: Always 0 .
  */
 int main(int argc, char **argv)
 {
@@ -94,8 +94,8 @@ int main(int argc, char **argv)
 	if (argc != 3)
 		printf("Error\n"), exit(98);
 
-	x = _strlen(argv[1]) + _strlen(argv[2]);
-	r = big_multiply(argv[1], argv[2]);
+	x = str_len(argv[1]) + str_len(argv[2]);
+	r = the_big_multiply(argv[1], argv[2]);
 	c = 0;
 	a = 0;
 	while (c < x)
