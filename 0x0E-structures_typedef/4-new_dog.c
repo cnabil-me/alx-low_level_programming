@@ -1,5 +1,39 @@
 #include "dog.h"
 #include <stdlib.h>
+
+/**
+ * find_strlen - find length of string
+ * @str: the string
+ * Return: int length
+ */
+
+int find_strlen(const char *str)
+{
+	int length = 0;
+
+	while (*str++)
+		length++;
+	return (length);
+}
+
+/**
+ * copy_str - copy a string from @src to @dest:
+ * @src: string source
+ * @dest: string distination
+ * Return: Pointer to @dest
+ */
+
+char *copy_str(char *dest, char *src)
+{
+	int i;
+
+	for (i = 0; src[i]; i++)
+		dest[i] = src[i];
+	dest[i] = '\0';
+
+	return (dest);
+}
+
 /**
  * new_dog - copy new dog
  * @name: dog name
@@ -7,48 +41,36 @@
  * @owner: new owner
  * Return: dog_t pointer otherwize NULL.
  */
+
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *dog_pointer;
-	int i, len_name, len_owner;
+	dog_t *dog;
 
-	dog_pointer = malloc(sizeof(*dog_pointer));
+	if (!name || age < 0 || !owner)
+		return (NULL);
 
-	if (dog_pointer == NULL || !(name) || !(owner))
+	dog = (dog_t *)malloc(sizeof(dog_t));
+	if (dog == NULL)
+		return (NULL);
+
+	dog->name = malloc(sizeof(char) * (find_strlen(name) + 1));
+	if ((*dog).name == NULL)
 	{
-		free(dog_pointer);
+		free(dog);
 		return (NULL);
 	}
 
-	for (len_name = 0; name[len_name]; len_name++)
-		;
-
-	for (len_owner = 0; owner[len_owner]; len_owner++)
-		;
-
-	dog_pointer->owner = malloc(len_owner + 1);
-	dog_pointer->name = malloc(len_name + 1);
-
-	if (!(dog_pointer->name) || !(dog_pointer->owner))
+	dog->owner = malloc(sizeof(char) * (find_strlen(owner) + 1));
+	if ((*dog).owner == NULL)
 	{
-		free(dog_pointer->name);
-		free(dog_pointer->owner);
-		free(dog_pointer);
+		free(dog->name);
+		free(dog);
 		return (NULL);
 	}
 
-	for (i = 0; i < len_name; i++)
-	{
-		dog_pointer->name[i] = name[i];
-	}
-	dog_pointer->name[i] = '\0';
-	dog_pointer->age = age;
-
-	for (i = 0; i < len_owner; i++)
-	{
-		dog_pointer->owner[i] = owner[i];
-	}
-	dog_pointer->owner[i] = '\0';
-	return (dog_pointer);
+	dog->name = copy_str(dog->name, name);
+	dog->owner = copy_str(dog->owner, owner);
+	dog->age = age;
+	return (dog);
 }
 
