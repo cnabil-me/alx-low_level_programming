@@ -6,35 +6,47 @@
  */
 void print_all(const char *const format, ...)
 {
-	va_list argsPtr;
+	va_list vaPtr;
 	unsigned int i = 0, j, c = 0;
 	char *str;
-	const char t_argsPtr[] = "cifs";
+	const char t_arg[] = "cifs";
 
-	va_start(argsPtr, format);
+	va_start(vaPtr, format);
 	while (format && format[i])
 	{
 		j = 0;
-		while (t_argsPtr[j])
-			if (format[i] == t_argsPtr[j++] && c++)
-				printf(", ");
-		if (format[i] == 'c')
-			printf("%c", va_arg(argsPtr, int)), c = 1;
-		else if (format[i] == 'i')
-			printf("%d", va_arg(argsPtr, int)), c = 1;
-		else if (format[i] == 'f')
-			printf("%f", va_arg(argsPtr, double)), c = 1;
-		else if (format[i] == 's')
+		while (t_arg[j])
 		{
-			str = va_arg(argsPtr, char *);
+			if (format[i] == t_arg[j] && c)
+			{
+				printf(", ");
+				break;
+			}
+			j++;
+		}
+		switch (format[i])
+		{
+		case 'c':
+			printf("%c", va_arg(vaPtr, int)), c = 1;
+			break;
+		case 'i':
+			printf("%d", va_arg(vaPtr, int)), c = 1;
+			break;
+		case 'f':
+			printf("%f", va_arg(vaPtr, double)), c = 1;
+			break;
+		case 's':
+			str = va_arg(vaPtr, char *), c = 1;
 			if (!str)
+			{
 				printf("(nil)");
-			else
-				printf("%s", str);
-			c = 1;
+				break;
+			}
+			printf("%s", str);
+			break;
 		}
 		i++;
 	}
-	printf("\n"), va_end(argsPtr);
+	printf("\n"), va_end(vaPtr);
 }
 
