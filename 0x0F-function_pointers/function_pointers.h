@@ -1,11 +1,19 @@
-#ifndef _FUNCTION_POINTERS_
-#define _FUNCTION_POINTERS_
+#include "function_pointers.h"
+#include <stdio.h>
 
-#include <stdlib.h>
+/**
+ * array_iterator - appy action while mapping array
+ * @array: array to map
+ * @size: size of array
+ * @action: function to apply
+ * Return: Void
+ */
+void array_iterator(int *array, size_t size, void (*action)(int))
+{
+	size_t i;
 
-void print_name(char *name, void (*f)(char *));
-void array_iterator(int *array, size_t size, void (*action)(int));
-int int_index(int *array, int size, int (*cmp)(int));
-
-#endif
+	if (array && action)
+		for (i = 0; i < size; i++)
+			action(array[i]);
+}
 
