@@ -1,10 +1,10 @@
 #include "3-calc.h"
 
 /**
-* get_op_func - returns pointer to right op func
-* @s: string operator
+* get_op_func - map operator to function
+* @s: operator
 *
-* Return: the right function pointer
+* Return: function pointer or NULL
 */
 int (*get_op_func(char *s))(int, int)
 {
@@ -16,6 +16,7 @@ int (*get_op_func(char *s))(int, int)
 		{"%", op_mod},
 		{NULL, NULL}
 	};
+
 	int i = 0;
 
 	while (i < 5)
