@@ -1,9 +1,7 @@
 #include "variadic_functions.h"
-
 /**
  * print_all - prints anything given
  * @format: a list of types of arguments
- *
  * Return: Void
  */
 void print_all(const char *const format, ...)
@@ -18,34 +16,22 @@ void print_all(const char *const format, ...)
 	{
 		j = 0;
 		while (t_argsPtr[j])
-		{
-			if (format[i] == t_argsPtr[j] && c)
-			{
+			if (format[i] == t_argsPtr[j++] && c++)
 				printf(", ");
-				break;
-			}
-			j++;
-		}
-		switch (format[i])
-		{
-		case 'c':
+		if (format[i] == 'c')
 			printf("%c", va_arg(argsPtr, int)), c = 1;
-			break;
-		case 'i':
+		else if (format[i] == 'i')
 			printf("%d", va_arg(argsPtr, int)), c = 1;
-			break;
-		case 'f':
+		else if (format[i] == 'f')
 			printf("%f", va_arg(argsPtr, double)), c = 1;
-			break;
-		case 's':
-			str = va_arg(argsPtr, char *), c = 1;
+		else if (format[i] == 's')
+		{
+			str = va_arg(argsPtr, char *);
 			if (!str)
-			{
 				printf("(nil)");
-				break;
-			}
-			printf("%s", str);
-			break;
+			else
+				printf("%s", str);
+			c = 1;
 		}
 		i++;
 	}
