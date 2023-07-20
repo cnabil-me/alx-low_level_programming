@@ -1,5 +1,4 @@
 #include "function_pointers.h"
-#include <stdio.h>
 
 /**
  * array_iterator - appy action while mapping array
@@ -10,10 +9,10 @@
  */
 void array_iterator(int *array, size_t size, void (*action)(int))
 {
-	size_t i;
+	int *last = array + size - 1;
 
-	if (array && action)
-		for (i = 0; i < size; i++)
-			action(array[i]);
+	if (array && size && action)
+		while (array <= last)
+			action(*array++);
 }
 
