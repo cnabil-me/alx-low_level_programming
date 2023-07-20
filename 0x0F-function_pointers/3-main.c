@@ -1,11 +1,11 @@
 #include "3-calc.h"
 
 /**
- * main - check the code for The School students.
- * @argc: the number of args
- * @argv: argument vector
+ * main - calculator.
+ * @argc: args
+ * @argv: vector
  *
- * Return: Always 0.
+ * Return:  0.
  */
 int main(int argc, char **argv)
 {
