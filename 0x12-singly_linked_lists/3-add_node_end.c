@@ -15,18 +15,20 @@ int _str_len(char *str)
  * add_node_end - add node to the end of the list
  * @head:list head
  * @str: string to be dupplicated
- * Return: the new head
+ * Return: the head
  */
 list_t *add_node_end(list_t **head, const char *str)
 {
-	list_t *new_node, *temp;
+	list_t *new_node;
+	list_t *temp;
 
 	new_node = malloc(sizeof(list_t));
 	if (new_node == NULL)
 		return (NULL);
 
 	new_node->str = strdup(str);
-
+	if (!new_node->str)
+		return (NULL);
 	new_node->len = _str_len(new_node->str);
 	new_node->next = NULL;
 	temp = *head;
