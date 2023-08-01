@@ -6,14 +6,14 @@
  */
 int sum_listint(listint_t *head)
 {
-	int sum;
-	if (head == NULL)
+	int sum = 0;
+
+	while (head != NULL)
 	{
-		return (0);
+		sum += head->n;
+		head = head->next;
 	}
 
-	for (sum = 0; (head = head->next) && head != NULL; sum += head->n)
-		;
 	return (sum);
 }
 
