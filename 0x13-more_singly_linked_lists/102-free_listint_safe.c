@@ -1,5 +1,5 @@
 #include "lists.h"
-void free_this_list(listp_t **head);
+void free_list(listp_t **head);
 
 /**
  * free_listint_safe - frees a list safely
@@ -32,7 +32,7 @@ size_t free_listint_safe(listint_t **h)
 			if (*h == add->p)
 			{
 				*h = NULL;
-				free_this_list(&_header);
+				free_list(&_header);
 				return (nnodes);
 			}
 		}
@@ -44,16 +44,16 @@ size_t free_listint_safe(listint_t **h)
 	}
 
 	*h = NULL;
-	free_this_list(&_header);
+	free_list(&_header);
 	return (nnodes);
 }
 
 /**
- * free_this_list - frees a list
+ * free_list - frees a list
  * @head: head of list.
  * Return: void
  */
-void free_this_list(listp_t **head)
+void free_list(listp_t **head)
 {
 	listp_t *temp;
 	listp_t *curr;
