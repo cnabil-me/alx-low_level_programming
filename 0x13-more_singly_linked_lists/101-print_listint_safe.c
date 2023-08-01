@@ -1,6 +1,27 @@
 #include "lists.h"
 
 void free_this_list(listp_t **head);
+/**
+ * free_this_list - frees linked list
+ * @head: head of list
+ * Return: void
+ */
+void free_this_list(listp_t **head)
+{
+	listp_t *temp;
+	listp_t *current;
+
+	if (head != NULL)
+	{
+		current = *head;
+		while ((temp = current) != NULL)
+		{
+			current = current->next;
+			free(temp);
+		}
+		*head = NULL;
+	}
+}
 
 /**
  * print_listint_safe - prints a linked list
