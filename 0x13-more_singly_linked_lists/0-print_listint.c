@@ -6,12 +6,14 @@
  */
 size_t print_listint(const listint_t *h)
 {
-	size_t counter;
+	size_t c = 0;
 
-	for (counter = 0; h; h = h->next, counter++)
+	while (h)
 	{
 		printf("%d\n", h->n);
+		h = h->next;
+		c++;
 	}
-	return (counter);
+	return (c);
 }
 
