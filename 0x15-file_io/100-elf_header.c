@@ -4,8 +4,9 @@
 void print_osabi_more(Elf64_Ehdr h);
 
 /**
- * print_magic - prints ELF magic bytes
+ * print_magic - print magic
  * @h: the ELF header struct
+ * Return: void
  */
 void print_magic(Elf64_Ehdr h)
 {
@@ -17,8 +18,9 @@ void print_magic(Elf64_Ehdr h)
 }
 
 /**
- * print_class - prints ELF class
+ * print_class - print class
  * @h: the ELF header struct
+ * Return: void
  */
 void print_class(Elf64_Ehdr h)
 {
@@ -39,8 +41,9 @@ void print_class(Elf64_Ehdr h)
 }
 
 /**
- * print_data - prints ELF data
+ * print_data - print data
  * @h: the ELF header struct
+ * Return: void
  */
 void print_data(Elf64_Ehdr h)
 {
@@ -61,8 +64,9 @@ void print_data(Elf64_Ehdr h)
 }
 
 /**
- * print_version - prints ELF version
+ * print_version - print version
  * @h: the ELF header struct
+ * Return: void
  */
 void print_version(Elf64_Ehdr h)
 {
@@ -81,8 +85,9 @@ void print_version(Elf64_Ehdr h)
 }
 
 /**
- * print_osabi - prints ELF osabi
+ * print_osabi - print osabi
  * @h: the ELF header struct
+ * Return: void
  */
 void print_osabi(Elf64_Ehdr h)
 {
@@ -124,8 +129,9 @@ void print_osabi(Elf64_Ehdr h)
 }
 
 /**
- * print_osabi_more - prints ELF osabi more
+ * print_osabi_more - print osabi more
  * @h: the ELF header struct
+ * Return: void
  */
 void print_osabi_more(Elf64_Ehdr h)
 {
@@ -150,8 +156,9 @@ void print_osabi_more(Elf64_Ehdr h)
 }
 
 /**
- * print_abiversion  - prints ELF ABI version
+ * print_abiversion  - print ABI version
  * @h: the ELF header struct
+ * Return: void
  */
 void print_abiversion(Elf64_Ehdr h)
 {
@@ -162,6 +169,7 @@ void print_abiversion(Elf64_Ehdr h)
 /**
  * print_type - prints the ELF type
  * @h: the ELF header struct
+ * Return: void
  */
 void print_type(Elf64_Ehdr h)
 {
@@ -198,6 +206,7 @@ void print_type(Elf64_Ehdr h)
 /**
  * print_entry - prints the ELF entry point address
  * @h: the ELF header struct
+ * Return: void
  */
 void print_entry(Elf64_Ehdr h)
 {
@@ -229,10 +238,9 @@ void print_entry(Elf64_Ehdr h)
 }
 
 /**
- * main - program
+ * main - main function
  * @ac: argument count
  * @av: argument vector
- *
  * Return: 1 on success 0 on failure
  */
 int main(int ac, char **av)
