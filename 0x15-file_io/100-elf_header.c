@@ -1,10 +1,31 @@
-#include "elf_header.h"
-/**
- * is_elf - Checks ELF file
- * @e_in: A pointer to an array
- * Return: void
- * Description: If the file is not an ELF file - exit code 98
+/*
+ * File: 100-elf_header.c
+ * Auth: CHERRADI NABIL
  */
+
+#include <elf.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+void is_elf(unsigned char *e_ident);
+void printf_magic(unsigned char *e_ident);
+void printf_class(unsigned char *e_ident);
+void printf_data(unsigned char *e_ident);
+void printf_version(unsigned char *e_ident);
+void printf_abi(unsigned char *e_ident);
+void printf_osabi(unsigned char *e_ident);
+void printf_type(unsigned int e_type, unsigned char *e_ident);
+void printf_entry(unsigned long int e_entry, unsigned char *e_ident);
+void close_elf_file(int elf); /**
+			       * is_elf - Checks ELF file
+			       * @e_in: A pointer to an array
+			       * Return: void
+			       * Description: If the file is not an ELF file - exit code 98
+			       */
 void is_elf(unsigned char *e_in)
 {
 	int i;
